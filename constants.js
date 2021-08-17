@@ -13,6 +13,7 @@ const moveDict = {
 
 }
 const exit = '\u0003';
+
 module.exports = {
   IP,
   PORT,
