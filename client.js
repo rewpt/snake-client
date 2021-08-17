@@ -10,10 +10,10 @@ const connect = function() {
   conn.on('connect', () => {
     console.log('Successfully connected to game server');
     conn.write("Name: zev");
-    setTimeout(() => {conn.write("Move: up");}, 2000);
-    setTimeout(() => {conn.write("Move: left");}, 4000);
-    setTimeout(() => {conn.write("Move: left");}, 5000); 
-    setTimeout(() => {setInterval(() => {conn.write('Move: down')}, 1000)}, 6000);
+    // setTimeout(() => {conn.write("Move: up");}, 2000);
+    // setTimeout(() => {conn.write("Move: left");}, 4000);
+    // setTimeout(() => {conn.write("Move: left");}, 5000); 
+    // setTimeout(() => {setInterval(() => {conn.write('Move: down')}, 1000)}, 6000);
   });
   conn.on('data', (data) => {
     console.log('Server says: ', data);
@@ -22,4 +22,4 @@ const connect = function() {
   return conn;
 }
 
-module.exports = connect;
+module.exports = {connect};
