@@ -1,26 +1,19 @@
 const { connect } = require("./client");
+const { exit, chatDict, moveDict } = require('./constants')
 
 let connection;
 
 const handleUserInput = function(key, conn) {
-  const chatDict = {
-    1 : "What a great game",
-    2 : "I love snake too",
-    3 : "GG",
-  }
-  const moveDict = {
-    w : "Move: up",
-    a : "Move: left",
-    s : "Move: down",
-    d : "Move: right"
-  }
+
   if (!(chatDict[key] === undefined)) {
   conn.write(`Say: ${chatDict[key]}`);
   }
   if (!(moveDict[key] === undefined)) {
     conn.write(moveDict[key]);
   }
-
+  if (key === exit) {
+    process.exit();
+  }
 }
 
 const setupInput = function(conn) {
